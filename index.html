@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>下拉列表</title>
+    <link rel="stylesheet" href="css/combobox.css" type="text/css" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/jquery-combobox.js"></script>
+    <style>
+        body {
+            background-color: #A7B3BD;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="combobox" id="test"></div>
+
+    <script>
+        $("#test").combobox({
+            valueField: 'id',
+            textField: 'name',
+            panelHeight:'160px',
+            data: [{
+                "id": 5,
+                "name": "客户关怀服务部"
+            }, {
+                "id": 5,
+                "name": "互联网事业部"
+            }, {
+                "id": 5,
+                "name": "产品部"
+            }, {
+                "id": 5,
+                "name": "综合管理办公室"
+            }],
+            prefixText: '请选择部门',
+            onLoadSuccess: function(data) {
+                console.info("数据加载成功!");
+            }
+        }).combobox("loadData", [{
+            "id": 5,
+            "name": "客户关怀服务部"
+        }, {
+            "id": 5,
+            "name": "互联网事业部"
+        }, {
+            "id": 5,
+            "name": "产品部"
+        }, {
+            "id": 5,
+            "name": "综合管理办公室"
+        },
+        {
+            "id": 5,
+            "name": "云事业部"
+        },
+        {
+            "id": 5,
+            "name": "智能化工程部"
+        }]);
+    </script>
+</body>
+
+</html>
