@@ -16,41 +16,53 @@
 
 
 
-    <div class="combobox" id="test"></div>
-
+    <span class="combobox" id="test"></span>
+    <button id="getvalue">得到值</button>
     <script>
+        var id =10;
         $("#test").combobox({
             valueField: 'id',
             textField: 'name',
-            panelHeight:'160px',
+            panelHeight:'auto',
+            width:'auto',
+            notNull:false,
             data: [{
-                "id": 5,
+                "id": 1,
                 "name": "客户关怀服务部"
             }, {
-                "id": 5,
+                "id": 2,
                 "name": "互联网事业部"
             }, {
-                "id": 5,
+                "id": 3,
                 "name": "产品部"
             }, {
-                "id": 5,
+                "id": 4,
                 "name": "综合管理办公室"
             }],
             prefixText: '请选择部门',
             onLoadSuccess: function(data) {
-                console.info("数据加载成功!");
+                console.info("onLoadSuccess!");
+            },
+            onChange:function(newValue,oldValue){
+                console.info("onChange");
+            },
+            onSelect:function(record){
+                console.info("onSelect");
+            },
+            onUnSelect:function(record){
+                console.info("onUnSelect");
             }
         }).combobox("loadData", [{
-            "id": 5,
+            "id": 1,
             "name": "客户关怀服务部"
         }, {
-            "id": 5,
+            "id": 2,
             "name": "互联网事业部"
         }, {
-            "id": 5,
+            "id": 3,
             "name": "产品部"
         }, {
-            "id": 5,
+            "id": 4,
             "name": "综合管理办公室"
         },
         {
@@ -58,9 +70,14 @@
             "name": "云事业部"
         },
         {
-            "id": 5,
-            "name": "智能化工程部"
+            "id": 6,
+            "name": "智能化工程部",
+            selected:true
         }]);
+        $("#getvalue").on("click",function(){
+            alert($("#test").combobox("getValue")+$("#test").combobox("getText"));
+        });
+
     </script>
 </body>
 
